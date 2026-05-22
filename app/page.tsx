@@ -70,7 +70,7 @@ export default function Home() {
                 "UI/UX Designer",
                 "React Developer",
                 "Digital Marketer",
-                "Graphic Designer",
+                "",
               ]}
             />
           </div>
