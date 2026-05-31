@@ -206,10 +206,9 @@ export default function Home() {
             <BlogList />
             </section>    */}
       {/* ---------- CONTACT SECTION ---------- */}
-      <section id="contact" className="px-8 md:px-20 py-20">
-
-        <div className="grid grid-cols-2 gap-3 "> 
-        <div className="max-w-2xl mx-auto flex justify-items-start items-start">
+      <section id="contact" className="px-4 py-16 sm:px-6 md:px-12 lg:px-20 lg:py-20">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:items-start">
+        <div className="w-full max-w-2xl mx-auto">
           <ContactForm />
         </div>
            <Detail/>

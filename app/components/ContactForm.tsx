@@ -144,10 +144,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section
-      id="contact"
-      className="relative overflow-hidden px-6 md:px-20 py-24 bg-gray-100 dark:bg-gray-950"
-    >
+    <div className="relative w-full overflow-hidden rounded-3xl bg-gray-100 px-4 py-10 dark:bg-gray-950 sm:px-6 md:px-8">
       {/* Background Glow */}
       <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-amber-500/20 blur-[120px]" />
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-purple-500/20 blur-[120px]" />
@@ -167,28 +164,28 @@ export default function ContactForm() {
         viewport={{
           once: true,
         }}
-        className="max-w-4xl mx-auto"
+        className="mx-auto w-full max-w-4xl"
       >
         {/* Heading */}
-        <div className="text-center mb-14">
+        <div className="mb-8 text-center sm:mb-10">
           <div className="flex justify-center mb-5">
             <div className="w-auto h-auto rounded-3xl bg-linear-to-r from-amber-500 to-pink-500 flex items-center justify-center text-white shadow-2xl">
               <Mail className="w-9 h-9" />
             </div>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+          <h2 className="text-3xl font-bold bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
             Contact Me
           </h2>
 
-          <p className="text-gray-600 dark:text-gray-400 mt-4 text-lg">
+          <p className="text-gray-600 dark:text-gray-400 mt-3 text-base sm:text-lg">
             Let’s build something amazing
             together
           </p>
         </div>
 
         {/* Glass Card */}
-        <div className="backdrop-blur-2xl bg-white/70 dark:bg-gray-900/70 border border-white/20 dark:border-gray-700 rounded-[36px] p-8 shadow-2xl">
+        <div className="backdrop-blur-2xl bg-white/70 dark:bg-gray-900/70 border border-white/20 dark:border-gray-700 rounded-3xl p-5 shadow-2xl sm:p-6 md:p-8">
           <form
             onSubmit={handleSubmit}
             className="space-y-6"
@@ -297,7 +294,7 @@ export default function ContactForm() {
           </form>
         </div>
       </motion.div>
-    </section>
+    </div>
   );
 }
 

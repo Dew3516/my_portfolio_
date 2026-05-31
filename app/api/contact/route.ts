@@ -5,14 +5,14 @@ import nodemailer from 'nodemailer';
 import { validateContactForm } from '@/lib/validation';
 import { checkRateLimit, getClientIP } from '@/lib/rateLimit';
 
-// Configure nodemailer - update with your email credentials
-const transporter = nodemailer.createTransport({
-  service: process.env.EMAIL_SERVICE || 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -51,45 +51,66 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Connect to MongoDB
-    await connectDB();
+    const emailUser = process.env.EMAIL_USER;
+    const emailPassword = process.env.EMAIL_PASSWORD;
+    const notifyEmail = process.env.NOTIFY_EMAIL || emailUser;
 
-    // Create and save message
-    const newMessage = new Message({
-      name,
-      email,
-      subject,
-      message,
+    if (!emailUser || !emailPassword || !notifyEmail) {
+      return NextResponse.json(
+        { error: 'Email service is not configured. Please try WhatsApp or email me directly.' },
+        { status: 503 }
+      );
+    }
+
+    const transporter = nodemailer.createTransport({
+      service: process.env.EMAIL_SERVICE || 'gmail',
+      auth: {
+        user: emailUser,
+        pass: emailPassword,
+      },
     });
 
-    await newMessage.save();
-
     // Send email notification
-    try {
-      await transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: process.env.NOTIFY_EMAIL || process.env.EMAIL_USER,
-        subject: `New Portfolio Message from ${name}`,
-        html: `
-          <h2>New Message from Your Portfolio</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Subject:</strong> ${subject}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message.replace(/\n/g, '<br>')}</p>
-        `,
-        replyTo: email,
-      });
-    } catch (emailError) {
-      console.error('Email sending failed:', emailError);
-      // Don't fail the API if email fails, just log it
+    await transporter.sendMail({
+      from: emailUser,
+      to: notifyEmail,
+      subject: `New Portfolio Message from ${name}`,
+      html: `
+        <h2>New Message from Your Portfolio</h2>
+        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Subject:</strong> ${escapeHtml(subject)}</p>
+        <p><strong>Message:</strong></p>
+        <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
+      `,
+      replyTo: email,
+    });
+
+    let messageId: unknown = null;
+
+    if (process.env.MONGODB_URI) {
+      try {
+        await connectDB();
+
+        const newMessage = new Message({
+          name,
+          email,
+          subject,
+          message,
+        });
+
+        await newMessage.save();
+        messageId = newMessage._id;
+      } catch (databaseError) {
+        console.error('Message saved by email, but database save failed:', databaseError);
+      }
     }
 
     return NextResponse.json(
       { 
         success: true, 
         message: 'Message sent successfully! I will get back to you soon.',
-        id: newMessage._id 
+        id: messageId,
       },
       { status: 201 }
     );

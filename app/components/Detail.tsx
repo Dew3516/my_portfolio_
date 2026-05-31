@@ -41,7 +41,7 @@ const details = [
 
 function Detail() {
   return (
-    <section className="relative overflow-hidden px-6 md:px-10 py-20">
+    <section className="relative w-full overflow-hidden px-4 py-10 sm:px-6 lg:px-0">
       {/* Background Glow */}
       <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-amber-500/20 blur-[120px]" />
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-purple-500/20 blur-[120px]" />
@@ -53,9 +53,9 @@ function Detail() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-8 sm:mb-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+          <h2 className="text-3xl font-bold bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent sm:text-4xl lg:text-5xl">
             Contact Details
           </h2>
 
@@ -65,7 +65,7 @@ function Detail() {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-rows-1 md:grid-rows-2 gap-6">
+        <div className="grid gap-5">
           {details.map((item, index) => (
             <motion.div
               key={item.label}
@@ -87,16 +87,16 @@ function Detail() {
               />
 
               {/* Card */}
-              <div className="relative flex items-center gap-5 rounded-[28px] border border-white/20 dark:border-gray-700 bg-white/70 dark:bg-gray-900/70 backdrop-blur-2xl p-6 shadow-xl transition-all duration-300 group-hover:shadow-2xl">
+              <div className="relative flex items-start gap-4 rounded-3xl border border-white/20 bg-white/70 p-5 shadow-xl backdrop-blur-2xl transition-all duration-300 group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-900/70 sm:items-center sm:gap-5 sm:p-6">
                 {/* Icon */}
                 <div
-                  className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-linear-to-r ${item.color} text-2xl text-white shadow-lg`}
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-linear-to-r ${item.color} text-xl text-white shadow-lg sm:h-16 sm:w-16 sm:text-2xl`}
                 >
                   {item.icon}
                 </div>
 
                 {/* Content */}
-                <div>
+                <div className="min-w-0">
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     {item.label}
                   </p>
@@ -104,12 +104,12 @@ function Detail() {
                   {item.href ? (
                     <a
                       href={item.href}
-                      className="text-lg font-semibold text-gray-800 dark:text-white hover:text-fuchsia-500 transition wrap-break-word"
+                      className="break-words text-base font-semibold text-gray-800 transition hover:text-fuchsia-500 dark:text-white sm:text-lg"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <p className="text-lg font-semibold text-gray-800 dark:text-white wrap-break-word">
+                    <p className="break-words text-base font-semibold text-gray-800 dark:text-white sm:text-lg">
                       {item.value}
                     </p>
                   )}
