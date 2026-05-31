@@ -144,7 +144,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden rounded-3xl bg-gray-100 px-4 py-8 dark:bg-gray-950 sm:px-6 sm:py-10 md:px-8">
+    <div className="relative w-full overflow-hidden rounded-2xl bg-gray-100 px-4 py-6 dark:bg-gray-950 sm:px-5 sm:py-8 md:px-6">
       {/* Background Glow */}
       <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-amber-500/20 blur-[120px]" />
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-purple-500/20 blur-[120px]" />
@@ -167,28 +167,28 @@ export default function ContactForm() {
         className="mx-auto w-full max-w-4xl"
       >
         {/* Heading */}
-        <div className="mb-7 text-center sm:mb-9">
-          <div className="flex justify-center mb-5">
-            <div className="w-auto h-auto rounded-3xl bg-linear-to-r from-amber-500 to-pink-500 flex items-center justify-center text-white shadow-2xl">
-              <Mail className="w-9 h-9" />
+        <div className="mb-6 text-center sm:mb-7">
+          <div className="flex justify-center mb-4">
+            <div className="w-auto h-auto rounded-2xl bg-linear-to-r from-amber-500 to-pink-500 flex items-center justify-center text-white shadow-xl">
+              <Mail className="w-7 h-7" />
             </div>
           </div>
 
-          <h2 className="text-3xl font-bold bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent sm:text-4xl lg:text-5xl">
+          <h2 className="text-2xl font-bold bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent sm:text-3xl lg:text-4xl">
             Contact Me
           </h2>
 
-          <p className="text-gray-600 dark:text-gray-400 mt-3 text-base sm:text-lg">
+          <p className="text-gray-600 dark:text-gray-400 mt-2 text-sm sm:text-base">
             Let’s build something amazing
             together
           </p>
         </div>
 
         {/* Glass Card */}
-        <div className="backdrop-blur-2xl bg-white/70 dark:bg-gray-900/70 border border-white/20 dark:border-gray-700 rounded-3xl p-5 shadow-2xl sm:p-6 md:p-8">
+        <div className="backdrop-blur-2xl bg-white/70 dark:bg-gray-900/70 border border-white/20 dark:border-gray-700 rounded-2xl p-4 shadow-xl sm:p-5 md:p-6">
           <form
             onSubmit={handleSubmit}
-            className="space-y-6"
+            className="space-y-4"
           >
             {/* Name */}
             <InputField
@@ -232,7 +232,7 @@ export default function ContactForm() {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Write your message..."
-                className={`w-full rounded-2xl px-5 py-4 bg-white/50 dark:bg-gray-800/50 border backdrop-blur-xl text-gray-900 dark:text-white outline-none transition ${
+                className={`w-full rounded-xl px-4 py-3 bg-white/50 dark:bg-gray-800/50 border backdrop-blur-xl text-gray-900 dark:text-white outline-none transition ${
                   errors.message
                     ? "border-red-500"
                     : "border-gray-300 dark:border-gray-700 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/30"
@@ -277,7 +277,7 @@ export default function ContactForm() {
                 status === "loading"
               }
               type="submit"
-              className="w-full flex items-center justify-center gap-3 rounded-2xl px-6 py-4 bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 text-white font-semibold shadow-xl transition disabled:opacity-50"
+              className="w-full flex items-center justify-center gap-3 rounded-xl px-5 py-3 bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 text-white font-semibold shadow-lg transition disabled:opacity-50"
             >
               {status === "loading" ? (
                 <>
@@ -318,7 +318,7 @@ function InputField({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full rounded-2xl px-5 py-4 bg-white/50 dark:bg-gray-800/50 border backdrop-blur-xl text-gray-900 dark:text-white outline-none transition ${
+        className={`w-full rounded-xl px-4 py-3 bg-white/50 dark:bg-gray-800/50 border backdrop-blur-xl text-gray-900 dark:text-white outline-none transition ${
           error
             ? "border-red-500"
             : "border-gray-300 dark:border-gray-700 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/30"
