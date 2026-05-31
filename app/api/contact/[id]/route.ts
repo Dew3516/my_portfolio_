@@ -4,9 +4,10 @@ import Message from '@/lib/models/Message';
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const authHeader = request.headers.get('authorization');
 
     if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_SECRET}`) {
@@ -15,7 +16,7 @@ export async function DELETE(
 
     await connectDB();
 
-    const result = await Message.findByIdAndDelete(params.id);
+    const result = await Message.findByIdAndDelete(id);
 
     if (!result) {
       return NextResponse.json({ error: 'Message not found' }, { status: 404 });
@@ -36,9 +37,10 @@ export async function DELETE(
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const authHeader = request.headers.get('authorization');
 
     if (!authHeader || authHeader !== `Bearer ${process.env.ADMIN_SECRET}`) {
@@ -48,7 +50,7 @@ export async function PATCH(
     await connectDB();
 
     const message = await Message.findByIdAndUpdate(
-      params.id,
+      id,
       { read: true },
       { new: true }
     );
