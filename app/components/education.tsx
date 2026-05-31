@@ -55,7 +55,7 @@ function Education() {
         viewport={{ once: true }}
         className="text-center mb-20"
       >
-        <h2 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+        <h2 className="text-5xl md:text-6xl font-extrabold bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
           Education
         </h2>
 
@@ -67,7 +67,7 @@ function Education() {
       {/* Timeline */}
       <div className="relative max-w-5xl mx-auto">
         {/* Vertical Line */}
-        <div className="absolute left-7 md:left-1/2 md:-translate-x-1/2 top-0 h-full w-1 bg-gradient-to-b from-amber-500 via-pink-500 to-purple-500 rounded-full" />
+        <div className="absolute left-7 md:left-1/2 md:-translate-x-1/2 top-0 h-full w-1 bg-linear-to-b from-amber-500 via-pink-500 to-purple-500 rounded-full" />
 
         <div className="space-y-12">
           {educationData.map((item, index) => (
@@ -94,7 +94,7 @@ function Education() {
             >
               {/* Timeline Dot */}
               <div
-                className={`absolute left-0 md:left-1/2 md:-translate-x-1/2 w-14 h-14 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center text-white text-2xl shadow-xl z-10`}
+                className={`absolute left-0 md:left-1/2 md:-translate-x-1/2 w-14 h-14 rounded-full bg-linear-to-r ${item.color} flex items-center justify-center text-white text-2xl shadow-xl z-10`}
               >
                 {item.icon}
               </div>
@@ -110,7 +110,7 @@ function Education() {
                     </h3>
 
                     <span
-                      className={`px-5 py-2 rounded-full text-sm font-semibold bg-gradient-to-r ${item.color} text-white shadow-lg`}
+                      className={`px-5 py-2 rounded-full text-sm font-semibold bg-left-to-r ${item.color} text-white shadow-lg`}
                     >
                       {item.year}
                     </span>

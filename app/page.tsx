@@ -58,7 +58,7 @@ export default function Home() {
             Hi, I’m
           </h1>
 
-          <h1 className="mt-2 text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-fuchsia-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+          <h1 className="mt-2 text-5xl md:text-7xl font-extrabold bg-linear-to-r from-fuchsia-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
             Shashini Dewmini
           </h1>
 
@@ -70,7 +70,14 @@ export default function Home() {
                 "UI/UX Designer",
                 "React Developer",
                 "Digital Marketer",
-                "",
+                "Frontend Developer",
+                "UI/UX Designer",
+                "React Developer",
+                "Digital Marketer",
+                "Frontend Developer",
+                "UI/UX Designer",
+                "React Developer",
+                "Digital Marketer",
               ]}
             />
           </div>
@@ -86,8 +93,8 @@ export default function Home() {
 
           {/* Buttons */}
           <div className="mt-10 flex flex-wrap justify-center md:justify-start gap-5">
-            <a href="/Shashini_Dewmini_Frontend_CV_.pdf" download>
-              <button className="rounded-2xl bg-gradient-to-r from-fuchsia-500 via-pink-500 to-purple-500 px-8 py-4 text-lg font-semibold text-white shadow-2xl hover:scale-105 transition duration-300">
+            <a href="/Shashini_DewminiCV.pdf" download>
+              <button className="rounded-2xl bg-linear-to-r from-fuchsia-500 via-pink-500 to-purple-500 px-8 py-4 text-lg font-semibold text-white shadow-2xl hover:scale-105 transition duration-300">
                 Download CV
               </button>
             </a>
@@ -156,10 +163,10 @@ export default function Home() {
           className="relative mb-14 md:mb-0"
         >
           {/* Glow */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-fuchsia-500 via-pink-500 to-purple-500 blur-[80px] opacity-30" />
+          <div className="absolute inset-0 rounded-full bg-linear-to-r from-fuchsia-500 via-pink-500 to-purple-500 blur-[80px] opacity-30" />
 
           {/* Image Border */}
-          <div className="relative rounded-full bg-gradient-to-r from-fuchsia-500 via-pink-500 to-purple-500 p-2">
+          <div className="relative rounded-full bg-linear-to-r from-fuchsia-500 via-pink-500 to-purple-500 p-2">
             <Image
               src="/abut me.jpg"
               width={420}

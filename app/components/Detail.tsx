@@ -55,7 +55,7 @@ function Detail() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
             Contact Details
           </h2>
 
@@ -83,14 +83,14 @@ function Detail() {
             >
               {/* Hover Glow */}
               <div
-                className={`absolute inset-0 rounded-[28px] bg-gradient-to-r ${item.color} opacity-0 blur-xl transition duration-500 group-hover:opacity-20`}
+                className={`absolute inset-0 rounded-[28px] bg-linear-to-r ${item.color} opacity-0 blur-xl transition duration-500 group-hover:opacity-20`}
               />
 
               {/* Card */}
               <div className="relative flex items-center gap-5 rounded-[28px] border border-white/20 dark:border-gray-700 bg-white/70 dark:bg-gray-900/70 backdrop-blur-2xl p-6 shadow-xl transition-all duration-300 group-hover:shadow-2xl">
                 {/* Icon */}
                 <div
-                  className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-r ${item.color} text-2xl text-white shadow-lg`}
+                  className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-linear-to-r ${item.color} text-2xl text-white shadow-lg`}
                 >
                   {item.icon}
                 </div>
@@ -104,12 +104,12 @@ function Detail() {
                   {item.href ? (
                     <a
                       href={item.href}
-                      className="text-lg font-semibold text-gray-800 dark:text-white hover:text-fuchsia-500 transition break-words"
+                      className="text-lg font-semibold text-gray-800 dark:text-white hover:text-fuchsia-500 transition wrap-break-word"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <p className="text-lg font-semibold text-gray-800 dark:text-white break-words">
+                    <p className="text-lg font-semibold text-gray-800 dark:text-white wrap-break-word">
                       {item.value}
                     </p>
                   )}

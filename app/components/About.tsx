@@ -24,12 +24,12 @@ function About() {
           className="text-center mb-16"
         >
           <div className="flex justify-center mb-5">
-            <div className="flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-r from-amber-500 via-pink-500 to-purple-500 text-white shadow-2xl">
+            <div className="flex items-center justify-center w-20 h-20 rounded-3xl bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 text-white shadow-2xl">
               <FaUserAstronaut className="text-3xl" />
             </div>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
             About Me
           </h2>
 
@@ -50,7 +50,7 @@ function About() {
           className="relative group"
         >
           {/* Glow */}
-          <div className="absolute inset-0 rounded-[40px] bg-gradient-to-r from-amber-500/20 via-pink-500/20 to-purple-500/20 blur-2xl opacity-0 group-hover:opacity-100 transition duration-500" />
+          <div className="absolute inset-0 rounded-[40px] bg-linear-to-r from-amber-500/20 via-pink-500/20 to-purple-500/20 blur-2xl opacity-0 group-hover:opacity-100 transition duration-500" />
 
           {/* Glass Card */}
           <div className="relative rounded-[40px] border border-white/20 dark:border-gray-700 bg-white/70 dark:bg-gray-900/70 backdrop-blur-2xl p-10 md:p-14 shadow-2xl">

@@ -1,14 +1,40 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 
+const themeChangeEvent = "themechange";
+
+function getThemeSnapshot() {
+  const stored = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  return stored ? stored === "dark" : prefersDark;
+}
+
+function getServerThemeSnapshot() {
+  return false;
+}
+
+function subscribeToThemeChange(callback: () => void) {
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+  window.addEventListener("storage", callback);
+  window.addEventListener(themeChangeEvent, callback);
+  mediaQuery.addEventListener("change", callback);
+
+  return () => {
+    window.removeEventListener("storage", callback);
+    window.removeEventListener(themeChangeEvent, callback);
+    mediaQuery.removeEventListener("change", callback);
+  };
+}
+
 export default function DarkModeToggle() {
-  const [darkMode, setDarkMode] = useState(() => {
-    if (typeof window === "undefined") return false;
-    const stored = localStorage.getItem("theme");
-    return stored === "dark";
-  });
+  const darkMode = useSyncExternalStore(
+    subscribeToThemeChange,
+    getThemeSnapshot,
+    getServerThemeSnapshot
+  );
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
@@ -17,7 +43,7 @@ export default function DarkModeToggle() {
   const toggleTheme = () => {
     const next = !darkMode;
     localStorage.setItem("theme", next ? "dark" : "light");
-    setDarkMode(next);
+    window.dispatchEvent(new Event(themeChangeEvent));
   };
 
   return (

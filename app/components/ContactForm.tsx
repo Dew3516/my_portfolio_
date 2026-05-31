@@ -24,6 +24,15 @@ interface FormErrors {
   message?: string;
 }
 
+interface InputFieldProps {
+  label: string;
+  name: keyof Pick<FormData, "name" | "email" | "subject">;
+  value: string;
+  onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  placeholder: string;
+  error?: string;
+}
+
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -163,12 +172,12 @@ export default function ContactForm() {
         {/* Heading */}
         <div className="text-center mb-14">
           <div className="flex justify-center mb-5">
-            <div className="w-auto h-auto rounded-3xl bg-gradient-to-r from-amber-500 to-pink-500 flex items-center justify-center text-white shadow-2xl">
+            <div className="w-auto h-auto rounded-3xl bg-linear-to-r from-amber-500 to-pink-500 flex items-center justify-center text-white shadow-2xl">
               <Mail className="w-9 h-9" />
             </div>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
             Contact Me
           </h2>
 
@@ -271,7 +280,7 @@ export default function ContactForm() {
                 status === "loading"
               }
               type="submit"
-              className="w-full flex items-center justify-center gap-3 rounded-2xl px-6 py-4 bg-gradient-to-r from-amber-500 via-pink-500 to-purple-500 text-white font-semibold shadow-xl transition disabled:opacity-50"
+              className="w-full flex items-center justify-center gap-3 rounded-2xl px-6 py-4 bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 text-white font-semibold shadow-xl transition disabled:opacity-50"
             >
               {status === "loading" ? (
                 <>
@@ -299,7 +308,7 @@ function InputField({
   onChange,
   placeholder,
   error,
-}: any) {
+}: InputFieldProps) {
   return (
     <div>
       <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300">

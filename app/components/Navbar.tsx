@@ -117,7 +117,7 @@ export default function Navbar() {
                     stiffness: 300,
                     damping: 30,
                   }}
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-fuchsia-500 via-pink-500 to-purple-500 shadow-lg -z-10"
+                  className="absolute inset-0 rounded-full bg-linear-to-r from-fuchsia-500 via-pink-500 to-purple-500 shadow-lg -z-10"
                 />
               )}
             </a>

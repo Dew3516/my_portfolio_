@@ -88,9 +88,9 @@ const projects = [
     category: "UI/UX",
   },
    {
-    title: "AI Chatbot",
+    title: "web page design",
     description:
-      "Interactive AI chatbot interface.",
+      "A responsive web page design showcasing a portfolio.",
     tech: [
       "HTML",
       "CSS",
@@ -98,6 +98,19 @@ const projects = [
     ],
     image: "/Screenshot 2026-05-20 234848.png",
     link: "https://dew3516.github.io/First-web-page-design/",
+    category: "Frontend",
+  },
+  {
+    title: "web game design",
+    description:
+      "A simple web-based game design.",
+    tech: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+    ],
+    image: "/Screenshot 2026-05-30 205003.png",
+    link: "https://runner-game-kohl.vercel.app/",
     category: "Frontend",
   },
 
@@ -175,7 +188,7 @@ export default function Projects() {
         }}
         className="text-center mb-16"
       >
-        <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+        <h2 className="text-5xl md:text-6xl font-bold bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
           Featured Projects
         </h2>
 
@@ -207,7 +220,7 @@ export default function Projects() {
               ${
                 activeCategory ===
                 cat
-                  ? "bg-gradient-to-r from-amber-500 via-pink-500 to-purple-500 text-white shadow-xl"
+                  ? "bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 text-white shadow-xl"
                   : "bg-white/50 dark:bg-gray-900/50 border-white/20 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:scale-105"
               }`}
             >

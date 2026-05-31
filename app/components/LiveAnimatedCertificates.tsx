@@ -115,7 +115,7 @@ export default function LiveAnimatedCertificates() {
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+        <h2 className="text-5xl md:text-6xl font-bold bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent">
           Certificates
         </h2>
 
@@ -169,13 +169,13 @@ export default function LiveAnimatedCertificates() {
                 type: "spring",
                 stiffness: 280,
               }}
-              className="group relative min-w-[320px] overflow-hidden rounded-[32px]"
+              className="group relative min-w-[320px] overflow-hidden rounded-4xl"
             >
               {/* Glow */}
-              <div className="absolute inset-0 rounded-[32px] bg-gradient-to-r from-amber-500/20 via-pink-500/20 to-purple-500/20 blur-xl opacity-0 group-hover:opacity-100 transition duration-500" />
+              <div className="absolute inset-0 rounded-4xl bg-linear-to-r from-amber-500/20 via-pink-500/20 to-purple-500/20 blur-xl opacity-0 group-hover:opacity-100 transition duration-500" />
 
               {/* Card */}
-              <div className="relative backdrop-blur-2xl bg-white/70 dark:bg-gray-900/70 border border-white/20 dark:border-gray-700 rounded-[32px] p-5 shadow-2xl">
+              <div className="relative backdrop-blur-2xl bg-white/70 dark:bg-gray-900/70 border border-white/20 dark:border-gray-700 rounded-4xl p-5 shadow-2xl">
                 {/* Certificate Image */}
                 {cert.image && (
                   <div className="overflow-hidden rounded-2xl">
@@ -208,7 +208,7 @@ export default function LiveAnimatedCertificates() {
                       href={cert.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center mt-5 rounded-full bg-gradient-to-r from-amber-500 to-pink-500 px-5 py-2 text-sm font-semibold text-white shadow-lg hover:scale-105 transition"
+                      className="inline-flex items-center mt-5 rounded-full bg-linear-to-r from-amber-500 to-pink-500 px-5 py-2 text-sm font-semibold text-white shadow-lg hover:scale-105 transition"
                     >
                       View Certificate →
                     </a>
