@@ -41,7 +41,7 @@ const details = [
 
 function Detail() {
   return (
-    <section className="relative w-full overflow-hidden rounded-3xl bg-gray-100 px-4 py-8 dark:bg-gray-950 sm:px-6 sm:py-10 lg:bg-transparent lg:px-0 lg:dark:bg-transparent">
+    <section className="relative w-full rounded-3xl bg-gray-100 px-4 py-8 dark:bg-gray-950 sm:px-6 sm:py-10 lg:bg-transparent lg:px-0 lg:dark:bg-transparent">
       {/* Background Glow */}
       <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-amber-500/20 blur-[120px]" />
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-purple-500/20 blur-[120px]" />
@@ -87,7 +87,7 @@ function Detail() {
               />
 
               {/* Card */}
-              <div className="relative flex items-start gap-4 rounded-3xl border border-white/20 bg-white/70 p-5 shadow-xl backdrop-blur-2xl transition-all duration-300 group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-900/70 sm:items-center sm:gap-5 sm:p-6">
+              <div className="relative flex w-full items-start gap-4 rounded-3xl border border-white/20 bg-white/70 p-4 shadow-xl backdrop-blur-2xl transition-all duration-300 group-hover:shadow-2xl dark:border-gray-700 dark:bg-gray-900/70 sm:gap-5 sm:p-6">
                 {/* Icon */}
                 <div
                   className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-linear-to-r ${item.color} text-xl text-white shadow-lg sm:h-16 sm:w-16 sm:text-2xl`}
@@ -96,7 +96,7 @@ function Detail() {
                 </div>
 
                 {/* Content */}
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     {item.label}
                   </p>
@@ -104,12 +104,12 @@ function Detail() {
                   {item.href ? (
                     <a
                       href={item.href}
-                      className="wrap-break-word text-base font-semibold text-gray-800 transition hover:text-fuchsia-500 dark:text-white sm:text-lg"
+                      className="block max-w-full overflow-visible break-words text-base font-semibold leading-relaxed text-gray-800 transition hover:text-fuchsia-500 dark:text-white sm:text-lg"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <p className="wrap-break-word text-base font-semibold text-gray-800 dark:text-white sm:text-lg">
+                    <p className="max-w-full overflow-visible break-words text-base font-semibold leading-relaxed text-gray-800 dark:text-white sm:text-lg">
                       {item.value}
                     </p>
                   )}
