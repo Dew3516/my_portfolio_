@@ -207,7 +207,7 @@ export default function Home() {
             </section>    */}
       {/* ---------- CONTACT SECTION ---------- */}
       <section id="contact" className="px-4 py-12 sm:px-6 md:px-12 lg:px-20 lg:py-16">
-        <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-6 lg:grid-cols-[minmax(260px,360px)_minmax(0,1fr)] lg:items-start">
+        <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-10 lg:grid-cols-[minmax(260px,360px)_minmax(0,1fr)] lg:items-start lg:gap-14">
           <Detail />
           <div className="w-full">
             <ContactForm />
