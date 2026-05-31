@@ -41,7 +41,7 @@ const details = [
 
 function Detail() {
   return (
-    <section className="relative w-full overflow-hidden px-4 py-10 sm:px-6 lg:px-0">
+    <section className="relative w-full overflow-hidden rounded-3xl bg-gray-100 px-4 py-8 dark:bg-gray-950 sm:px-6 sm:py-10 lg:bg-transparent lg:px-0 lg:dark:bg-transparent">
       {/* Background Glow */}
       <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-amber-500/20 blur-[120px]" />
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-purple-500/20 blur-[120px]" />
@@ -53,7 +53,7 @@ function Detail() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-8 sm:mb-10"
+          className="mb-7 text-center sm:mb-9 lg:text-left"
         >
           <h2 className="text-3xl font-bold bg-linear-to-r from-amber-500 via-pink-500 to-purple-500 bg-clip-text text-transparent sm:text-4xl lg:text-5xl">
             Contact Details
@@ -104,12 +104,12 @@ function Detail() {
                   {item.href ? (
                     <a
                       href={item.href}
-                      className="break-words text-base font-semibold text-gray-800 transition hover:text-fuchsia-500 dark:text-white sm:text-lg"
+                      className="wrap-break-word text-base font-semibold text-gray-800 transition hover:text-fuchsia-500 dark:text-white sm:text-lg"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <p className="break-words text-base font-semibold text-gray-800 dark:text-white sm:text-lg">
+                    <p className="wrap-break-word text-base font-semibold text-gray-800 dark:text-white sm:text-lg">
                       {item.value}
                     </p>
                   )}
