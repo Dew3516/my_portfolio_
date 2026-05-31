@@ -5,18 +5,16 @@ type MongooseCache = {
   promise: Promise<Mongoose> | null;
 };
 
-const MONGODB_URI = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-  throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
-}
-
-const mongoDbUri: string = MONGODB_URI;
-
 const cached: MongooseCache =
   global.mongoose ?? (global.mongoose = { conn: null, promise: null });
 
 export async function connectDB() {
+  const mongoDbUri = process.env.MONGODB_URI;
+
+  if (!mongoDbUri) {
+    throw new Error('Please define the MONGODB_URI environment variable');
+  }
+
   if (cached.conn) {
     return cached.conn;
   }
